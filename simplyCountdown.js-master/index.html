@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BirthDay Countdown-Sazzad Mutassim</title>
+    <meta name="author" content="Vincent Loy"/>
+    <meta name="keywords" content="Vincent Loy, Javascript, Javascript Library, Javascript Countdown, jQuery Countdown, JS, JS Countdown, Countdown, Countup"/>
+    <meta name="description" content="simplyCountdown.js is an easy to use Javascript Countdown Library. You can easly customize it with your own CSS and versatile parameters."/>
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400italic' rel='stylesheet'
+          type='text/css'>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"/>
+
+    <link rel="stylesheet" href="css/simplyCountdown.theme.losange.css"/>
+    <link rel="stylesheet" href="css/simplyCountdown.theme.default.css"/>
+    <link rel="stylesheet" href="css/demo-only/prism.css"/>
+    <link rel="stylesheet" href="css/demo.css"/>
+</head>
+<body>
+<header class="row center-xs">
+    <div class="header-content">
+        <h1>BirthDay Countdown</h1>
+        <h2>Sazzad Mutassim</h2>
+
+        
+
+
+
+       
+
+
+    <section class="examples">
+        <h2>Examples</h2>
+        <h3>Default</h3>
+        <p>Displayed whithout jQuery - UTC enabled</p>
+        <div class="simply-countdown simply-countdown-one"></div>
+
+        <h3>Custom</h3>
+        <p>Displayed with jQuery - UTC disabled</p>
+        <div class="simply-countdown-losange" id="simply-countdown-losange"></div>
+
+        <h3>Inline</h3>
+        <p>Display a simple inline countdown</p>
+        <div class="simply-countdown-inline"></div>
+
+        <h3>countup</h3>
+        <p>countup Enabled option</p>
+        <div class="simply-countdown simply-countdown-countup" id="simply-countdown-countup"></div>
+    </section>
+
+    
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+<script src="dev/simplyCountdown.js"></script>
+<script>
+    /**
+     * WARNING: I set this coundtown to be running until the end of times.
+     * So when you'll init the plugin, follow how it's done in plugin documentation.
+     * e.g : instead of "month: d.getMonth() + 1" put "month: 10" for October.
+     */
+    var d = new Date(),
+        countUpDate = new Date();
+    d.setDate(d.getDate() + 450);
+
+    // default example
+    simplyCountdown('.simply-countdown-one', {
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate(),
+        enableUtc: true
+    });
+
+    // inline example
+    simplyCountdown('.simply-countdown-inline', {
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate(),
+        inline: true
+    });
+
+    //jQuery example
+    $('#simply-countdown-losange').simplyCountdown({
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate(),
+        enableUtc: false
+    });
+
+    // direct element injection & Count Up Example
+    var countUp = document.querySelector('.simply-countdown-countup');
+    simplyCountdown(countUp, {
+        year: countUpDate.getFullYear(),
+        month: countUpDate.getMonth() + 1,
+        day: countUpDate.getDate(),
+        hours: countUpDate.getHours(),
+        minutes: countUpDate.getMinutes(),
+        seconds: countUpDate.getSeconds(),
+        countUp: true
+    });
+</script>
+</body>
+</html>
