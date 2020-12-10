@@ -50,7 +50,7 @@ x = setInterval(function() {
     opts = {
       strings: ['HAPPY BIRTHDAY!', 'TO MY DEAR FRIEND', config.name],
       charSize: 30,
-      charSpacing: 35,
+      charSpacing: 25,
       lineHeight: 40,
 
       cx: w / 2,
